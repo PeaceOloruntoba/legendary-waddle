@@ -1,18 +1,22 @@
-import Header from "./components/Header";
-import Hero from "./components/Hero";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
+import MainLayout from './layouts/MainLayout';
+import Home from './pages/Home';
+import ArticlesPage from './pages/Articles';
+import AboutPage from './pages/About';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <>
-      <Header />
-      <Hero />
-      {/* <About /> */}
-      {/* <Features /> */}
-      {/* <Articles /> */}
-      {/* <Newsletter /> */}
-      {/* <Footer /> */}
-    </>
+    <Router>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/articles" element={<ArticlesPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Route>
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
