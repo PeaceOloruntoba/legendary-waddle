@@ -1,13 +1,1379 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Confident Women 40+ Wellness</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confident Women 40+ | Wellness & Pre-Menopause Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #E91E63;
+            --primary-dark: #C2185B;
+            --secondary-color: #FF5722;
+            --accent-color: #00BCD4;
+            --tertiary-color: #4CAF50;
+            --text-primary: #2C3E50;
+            --text-secondary: #5D6D7E;
+            --text-light: #85929E;
+            --background: #FFFFFF;
+            --surface: #F8F9FA;
+            --surface-elevated: #FFFFFF;
+            --border: #E8EAED;
+            --success: #4CAF50;
+            --gradient-primary: linear-gradient(135deg, #E91E63 0%, #FF5722 100%);
+            --gradient-secondary: linear-gradient(135deg, #00BCD4 0%, #4CAF50 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(233, 30, 99, 0.1) 0%, rgba(255, 87, 34, 0.1) 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23E91E63" stop-opacity="0.1"/><stop offset="100%" stop-color="%23FF5722" stop-opacity="0.05"/></radialGradient></defs><circle cx="200" cy="300" r="150" fill="url(%23a)"/><circle cx="800" cy="700" r="200" fill="url(%23a)"/></svg>') no-repeat center/cover;
+            opacity: 0.5;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .hero-content .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            opacity: 0.1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .article-image {
+            height: 200px;
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Image placeholders with actual content */
+        .placeholder-image {
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-align: center;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .placeholder-image .emoji {
+            font-size: 3rem;
+            opacity: 0.8;
+        }
+
+        .article-placeholder {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .article-placeholder.health {
+            background: linear-gradient(135deg, #E91E63 0%, #FF5722 100%);
+        }
+
+        .article-placeholder.wellness {
+            background: linear-gradient(135deg, #4CAF50 0%, #00BCD4 100%);
+        }
+
+        .article-placeholder.fitness {
+            background: linear-gradient(135deg, #FF5722 0%, #FF9800 100%);
+        }
+
+        .article-placeholder.mental {
+            background: linear-gradient(135deg, #9C27B0 0%, #E91E63 100%);
+        }
+
+        .article-placeholder.nutrition {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+        }
+
+        .article-placeholder.sleep {
+            background: linear-gradient(135deg, #3F51B5 0%, #2196F3 100%);
+        }
+
+        .floating-element {
+            position: absolute;
+            background: var(--surface-elevated);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        .floating-element.wellness {
+            top: 10%;
+            right: -10%;
+            width: 200px;
+        }
+
+        .floating-element.community {
+            bottom: 20%;
+            left: -10%;
+            width: 180px;
+        }
+
+        .floating-element h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .floating-element p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: var(--surface);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-text h3 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .about-text p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .highlight-quote {
+            background: var(--gradient-hero);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+            margin: 2rem 0;
+        }
+
+        .highlight-quote p {
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: var(--background);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: var(--surface-elevated);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Articles Section */
+        .articles {
+            padding: 6rem 0;
+            background: var(--surface);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .article-card {
+            background: var(--surface-elevated);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .article-image {
+            height: 200px;
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .article-category {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 0.75rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 6rem 0;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            placeholder-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .newsletter-submit {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .floating-element {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .features-grid,
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+
+        /* Loading animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="logo font-serif">Confident Women 40+</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#wellness">Wellness</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#community">Community</a></li>
+            </ul>
+            <a href="#newsletter" class="cta-button">Join Community</a>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1 class="font-serif">
+                    Embrace Your <span class="highlight">Power</span><br>
+                    Navigate <span class="highlight">Pre-Menopause</span><br>
+                    with Confidence
+                </h1>
+                <p class="subtitle">
+                    More than a blog – a transformative space for strong, vibrant women navigating midlife changes with courage, wisdom, and community support.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Women Empowered</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Wellness Tips</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Community Support</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn-primary">
+                        Start Your Journey
+                        <span>→</span>
+                    </a>
+                    <a href="#articles" class="btn-secondary">
+                        Read Articles
+                        <span>📚</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image fade-in">
+                <div class="placeholder-image" style="width: 100%; height: 600px; border-radius: 20px; box-shadow: var(--shadow-xl);">
+                    <div class="emoji">🌸</div>
+                    <div>Confident Woman<br>Embracing Her Power</div>
+                </div>
+                <div class="floating-element wellness">
+                    <h4>Wellness Focus</h4>
+                    <p>Natural hormone balance and holistic health approaches</p>
+                </div>
+                <div class="floating-element community">
+                    <h4>Supportive Community</h4>
+                    <p>Connect with like-minded women on similar journeys</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="font-serif">Meet Wumi Adegbenro</h2>
+                <p>Your guide through the transformative journey of pre-menopause and midlife wellness</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <div class="placeholder-image" style="width: 100%; height: 500px; border-radius: 20px; box-shadow: var(--shadow-lg);">
+                        <div class="emoji">👩‍💼</div>
+                        <div>Wumi Adegbenro<br>Your Wellness Guide</div>
+                    </div>
+                </div>
+                <div class="about-text fade-in">
+                    <h3>Empowering Women Through Knowledge & Community</h3>
+                    <p>
+                        At Confident Women 40+, we believe that midlife is not a crisis – it's a powerful turning point. This platform is designed to uplift, inform, and empower you through every step of your pre-menopause journey.
+                    </p>
+                    <div class="highlight-quote">
+                        <p>"Real self-care is not always about doing more. Sometimes it's just resting without guilt."</p>
+                    </div>
+                    <p>
+                        Whether you're seeking knowledge about hormonal changes, looking for natural wellness solutions, or simply need a supportive community that understands your journey, you've found your home here.
+                    </p>
+                    <a href="#wellness" class="btn-primary">Explore Wellness Tips</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="wellness">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="font-serif">Your Complete Wellness Toolkit</h2>
+                <p>Everything you need to navigate pre-menopause with confidence and grace</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌺</div>
+                    <h3>Hormone Balance</h3>
+                    <p>Natural strategies to support hormonal health during pre-menopause, including nutrition tips, herbal remedies, and lifestyle adjustments that make a real difference.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💪</div>
+                    <h3>Fitness & Movement</h3>
+                    <p>Age-appropriate exercise routines that boost energy, maintain bone health, and support your changing body through this transformative phase of life.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Mental Wellness</h3>
+                    <p>Stress management techniques, mindfulness practices, and emotional support strategies to navigate mood changes and maintain mental clarity.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">👥</div>
+                    <h3>Community Support</h3>
+                    <p>Connect with a supportive network of women sharing similar experiences, challenges, and victories on their pre-menopause journey.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📚</div>
+                    <h3>Expert Guidance</h3>
+                    <p>Evidence-based information from healthcare professionals, nutritionists, and wellness experts specializing in women's midlife health.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Personalized Resources</h3>
+                    <p>Downloadable planners, trackers, and worksheets designed specifically for women navigating pre-menopause and midlife transitions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles" id="articles">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="font-serif">Featured Articles</h2>
+                <p>Expert insights and practical advice for your wellness journey</p>
+            </div>
+            <div class="articles-grid">
+                <article class="article-card fade-in">
+                    <div class="article-image article-placeholder health">
+                        <div class="emoji">🌺</div>
+                        <div>Pre-Menopause Signs</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Health</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3>7 Early Signs of Pre-Menopause Every Woman Over 40 Should Know</h3>
+                        <p class="article-excerpt">
+                            Discover the early warning signs of pre-menopause and learn how to recognize the subtle changes your body is experiencing. Knowledge is power when it comes to managing this transition.
+                        </p>
+                        <a href="#" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+
+                <article class="article-card fade-in">
+                    <div class="article-image article-placeholder wellness">
+                        <div class="emoji">🌿</div>
+                        <div>Natural Hormone Balance</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Wellness</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3>How to Balance Hormones Naturally During Pre-Menopause</h3>
+                        <p class="article-excerpt">
+                            Explore gentle, natural approaches to supporting your hormonal health during pre-menopause. From nutrition to lifestyle changes, discover what really works.
+                        </p>
+                        <a href="#" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+
+                <article class="article-card fade-in">
+                    <div class="article-image article-placeholder fitness">
+                        <div class="emoji">💪</div>
+                        <div>Fitness After 40</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Fitness</span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3>Staying Fit and Strong: Exercise Guide for Women Over 40</h3>
+                        <p class="article-excerpt">
+                            Learn how to maintain fitness and build strength during your 40s and beyond. Discover the best exercises for bone health, metabolism, and overall wellness.
+                        </p>
+                        <a href="#" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+
+                <article class="article-card fade-in">
+                    <div class="article-image article-placeholder mental">
+                        <div class="emoji">🧠</div>
+                        <div>Mental Wellness</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Mental Health</span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3>Managing Stress and Emotional Changes in Pre-Menopause</h3>
+                        <p class="article-excerpt">
+                            Navigate the emotional ups and downs of pre-menopause with proven strategies for stress management, emotional regulation, and mental wellness.
+                        </p>
+                        <a href="#" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+
+                <article class="article-card fade-in">
+                    <div class="article-image article-placeholder nutrition">
+                        <div class="emoji">🥗</div>
+                        <div>Nutrition Essentials</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Nutrition</span>
+                            <span>9 min read</span>
+                        </div>
+                        <h3>Nutrition Essentials for Pre-Menopausal Women</h3>
+                        <p class="article-excerpt">
+                            Discover the key nutrients your body needs during pre-menopause and how to create a balanced eating plan that supports your changing nutritional needs.
+                        </p>
+                        <a href="#" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+
+                <article class="article-card fade-in">
+                    <div class="article-image article-placeholder sleep">
+                        <div class="emoji">😴</div>
+                        <div>Rest & Recovery</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-category">Wellness</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3>The Art of Rest: Sleep Strategies for Midlife Women</h3>
+                        <p class="article-excerpt">
+                            Quality sleep becomes even more crucial during pre-menopause. Learn practical strategies for better rest and why self-care includes guilt-free downtime.
+                        </p>
+                        <a href="#" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" class="btn-primary">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="newsletter">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="font-serif">Join Our Wellness Community</h2>
+                <p>Get weekly tips, exclusive content, and join thousands of women supporting each other through their pre-menopause journey.</p>
+                <div class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-submit">Join Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="community">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Confident Women 40+</h3>
+                    <p>Empowering women through their pre-menopause journey with knowledge, community, and compassionate support.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">👥</a>
+                        <a href="#" class="social-link">📺</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Wumi</a></li>
+                        <li><a href="#wellness">Wellness Resources</a></li>
+                        <li><a href="#articles">Latest Articles</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Hormone Health</a></li>
+                        <li><a href="#">Fitness & Movement</a></li>
+                        <li><a href="#">Mental Wellness</a></li>
+                        <li><a href="#">Nutrition</a></li>
+                        <li><a href="#">Self-Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Downloadable Planners</a></li>
+                        <li><a href="#">Wellness Trackers</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Expert Interviews</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Confident Women 40+. All rights reserved. Made with 💜 for amazing women everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => {
+                    loading.classList.add('hidden');
+                }, 500);
+            }, 1000);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Newsletter form handling
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            const button = this.querySelector('.newsletter-submit');
+            
+            if (email) {
+                button.textContent = 'Joining...';
+                button.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    button.textContent = 'Welcome! ✨';
+                    button.style.background = 'var(--success)';
+                    this.querySelector('.newsletter-input').value = '';
+                    
+                    setTimeout(() => {
+                        button.textContent = 'Join Now';
+                        button.style.background = 'white';
+                        button.disabled = false;
+                    }, 3000);
+                }, 2000);
+            }
+        });
+
+        // Mobile menu toggle (for future implementation)
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            // Mobile menu implementation would go here
+            console.log('Mobile menu toggled');
+        });
+
+        // Dynamic greeting based on time
+        const hour = new Date().getHours();
+        let greeting = 'Welcome';
+        if (hour < 12) greeting = 'Good Morning';
+        else if (hour < 17) greeting = 'Good Afternoon';
+        else greeting = 'Good Evening';
+
+        // Add some interactive elements
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = translateY(${rate}px);
+            }
+        });
+
+        // Add some sparkle to the experience
+        console.log('✨ Welcome to Confident Women 40+! ✨');
+        console.log('Built with love for amazing women navigating their wellness journey.');
+    </script>
+</body>
 </html>

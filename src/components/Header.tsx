@@ -1,30 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Header: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition ${
-        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-[1000] bg-white/95 backdrop-blur-md border-b border-gray-200 transition-all duration-300 ${
+        isScrolled ? "shadow-md" : ""
       }`}
     >
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <div className="text-xl font-serif text-brand">Confident Women 40+</div>
-        <ul className="hidden md:flex gap-6 text-gray-600">
-          <li><a href="#home" className="hover:text-brand">Home</a></li>
-          <li><a href="#about" className="hover:text-brand">About</a></li>
-          <li><a href="#wellness" className="hover:text-brand">Wellness</a></li>
-          <li><a href="#articles" className="hover:text-brand">Articles</a></li>
-          <li><a href="#community" className="hover:text-brand">Community</a></li>
+      <nav className="max-w-6xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+        <div className="font-playfair text-2xl font-bold bg-gradient-to-r from-pink-600 to-orange-500 bg-clip-text text-transparent">
+          Confident Women 40+
+        </div>
+        <ul className="hidden md:flex list-none gap-8 items-center">
+          {["Home", "About", "Wellness", "Articles", "Community"].map(
+            (item) => (
+              <li key={item}>
+                <a
+                  href={`#${item.toLowerCase()}`}
+                  className="text-gray-800 font-medium hover:text-pink-600 relative group transition-colors duration-300"
+                >
+                  {item}
+                  <span className="absolute bottom-[-5px] left-0 w-0 h-0.5 bg-gradient-to-r from-pink-600 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+            )
+          )}
         </ul>
-        <a href="#newsletter" className="btn-primary">Join Community</a>
+        <a
+          href="#newsletter"
+          className="hidden md:inline-block bg-gradient-to-r from-pink-600 to-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md"
+        >
+          Join Community
+        </a>
+        <div className="md:hidden flex flex-col gap-1 cursor-pointer">
+          <span className="w-6 h-0.5 bg-gray-800"></span>
+          <span className="w-6 h-0.5 bg-gray-800"></span>
+          <span className="w-6 h-0.5 bg-gray-800"></span>
+        </div>
       </nav>
     </header>
   );
