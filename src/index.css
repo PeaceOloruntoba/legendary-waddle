@@ -43,3 +43,21 @@
     transform: translateY(0);
   }
 }
+.gradient-health {
+  background: linear-gradient(135deg, #e91e63 0%, #ff5722 100%);
+}
+.gradient-wellness {
+  background: linear-gradient(135deg, #4caf50 0%, #00bcd4 100%);
+}
+.gradient-fitness {
+  background: linear-gradient(135deg, #ff5722 0%, #ff9800 100%);
+}
+.gradient-mental {
+  background: linear-gradient(135deg, #9c27b0 0%, #e91e63 100%);
+}
+.gradient-nutrition {
+  background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+}
+.gradient-sleep {
+  background: linear-gradient(135deg, #3f51b5 0%, #2196f3 100%);
+}
