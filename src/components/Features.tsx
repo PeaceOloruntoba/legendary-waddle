@@ -41,13 +41,13 @@ const Features: React.FC = () => {
   ];
 
   return (
-    <section id="wellness" className="py-24 bg-white">
+  <section id="wellness" className="py-24 bg-bg">
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-playfair text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+          <h2 className="font-playfair text-3xl md:text-4xl font-bold mb-4 text-primary">
             Your Complete Wellness Toolkit
           </h2>
-          <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          <p className="text-lg text-secondary max-w-xl mx-auto">
             Everything you need to navigate pre-menopause with confidence and
             grace
           </p>
@@ -56,16 +56,16 @@ const Features: React.FC = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="relative bg-white p-8 rounded-2xl border border-gray-200 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group animate-fade-in"
+              className="relative bg-bg p-8 rounded-2xl border border-primary/20 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group animate-fade-in"
             >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-600 to-orange-500 scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-pink-600 to-orange-500 rounded-full flex items-center justify-center text-3xl text-white">
+              <div className="absolute top-0 left-0 right-0 h-1 gradient-primary scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
+              <div className="w-20 h-20 mx-auto mb-6 gradient-primary rounded-full flex items-center justify-center text-3xl text-white">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">
+              <h3 className="text-xl font-semibold mb-4 text-primary">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-secondary leading-relaxed">
                 {feature.description}
               </p>
             </div>

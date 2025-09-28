@@ -14,18 +14,25 @@
 .font-playfair {
   font-family: "Playfair Display", serif;
 }
+html {
+  --color-primary: #C98882;
+  --color-text: #0C0C0C;
+  --color-text-secondary: #7A7A7A;
+  --color-bg: #F7F6F3;
+}
+
 .gradient-primary {
-  background: linear-gradient(135deg, #e91e63 0%, #ff5722 100%);
+  background: linear-gradient(135deg, #C98882 0%, #F2B5A8 100%);
 }
 .gradient-hero {
   background: linear-gradient(
     135deg,
-    rgba(233, 30, 99, 0.1) 0%,
-    rgba(255, 87, 34, 0.1) 100%
+    rgba(201, 136, 130, 0.15) 0%,
+    rgba(38, 38, 38, 0.15) 100%
   );
 }
 .bg-hero-pattern {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23E91E63" stop-opacity="0.1"/><stop offset="100%" stop-color="%23FF5722" stop-opacity="0.05"/></radialGradient></defs><circle cx="200" cy="300" r="150" fill="url(%23a)"/><circle cx="800" cy="700" r="200" fill="url(%23a)"/></svg>');
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23C98882" stop-opacity="0.12"/><stop offset="100%" stop-color="%23262626" stop-opacity="0.07"/></radialGradient></defs><circle cx="200" cy="300" r="150" fill="url(%23a)"/><circle cx="800" cy="700" r="200" fill="url(%23a)"/></svg>');
   background-size: cover;
   background-position: center;
   opacity: 0.5;
@@ -44,20 +51,41 @@
   }
 }
 .gradient-health {
-  background: linear-gradient(135deg, #e91e63 0%, #ff5722 100%);
+  background: linear-gradient(135deg, #C98882 0%, #F2B5A8 100%);
 }
 .gradient-wellness {
-  background: linear-gradient(135deg, #4caf50 0%, #00bcd4 100%);
+  background: linear-gradient(135deg, #C98882 0%, #7A7A7A 100%);
 }
 .gradient-fitness {
-  background: linear-gradient(135deg, #ff5722 0%, #ff9800 100%);
+  background: linear-gradient(135deg, #C98882 0%, #262626 100%);
 }
 .gradient-mental {
-  background: linear-gradient(135deg, #9c27b0 0%, #e91e63 100%);
+  background: linear-gradient(135deg, #C98882 0%, #0C0C0C 100%);
 }
 .gradient-nutrition {
-  background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+  background: linear-gradient(135deg, #C98882 0%, #F2B5A8 100%);
 }
 .gradient-sleep {
-  background: linear-gradient(135deg, #3f51b5 0%, #2196f3 100%);
+  background: linear-gradient(135deg, #262626 0%, #C98882 100%);
+}
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+.bg-primary {
+  background: var(--color-primary);
+}
+.bg-secondary {
+  background: var(--color-bg);
 }

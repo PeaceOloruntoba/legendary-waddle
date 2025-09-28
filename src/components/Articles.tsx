@@ -65,13 +65,13 @@ const Articles: React.FC = () => {
   ];
 
   return (
-    <section id="articles" className="py-24 bg-gray-50">
+  <section id="articles" className="py-24 bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-playfair text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+          <h2 className="font-playfair text-3xl md:text-4xl font-bold mb-4 text-primary">
             Featured Articles
           </h2>
-          <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          <p className="text-lg text-secondary max-w-xl mx-auto">
             Expert insights and practical advice for your wellness journey
           </p>
         </div>
@@ -79,7 +79,7 @@ const Articles: React.FC = () => {
           {articles.map((article, index) => (
             <article
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in"
+              className="bg-bg rounded-2xl overflow-hidden shadow-sm border border-primary/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in"
             >
               <div
                 className={`h-48 ${article.gradient} flex items-center justify-center flex-col gap-2 text-white font-semibold rounded-t-2xl`}
@@ -88,21 +88,21 @@ const Articles: React.FC = () => {
                 <div>{article.label}</div>
               </div>
               <div className="p-6">
-                <div className="flex items-center gap-4 mb-4 text-sm text-gray-400">
-                  <span className="bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                <div className="flex items-center gap-4 mb-4 text-sm text-secondary">
+                  <span className="bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
                     {article.category}
                   </span>
                   <span>{article.readTime}</span>
                 </div>
-                <h3 className="text-lg font-semibold mb-4 text-gray-800 leading-tight">
+                <h3 className="text-lg font-semibold mb-4 text-primary leading-tight">
                   {article.title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+                <p className="text-sm text-secondary mb-6 leading-relaxed">
                   {article.excerpt}
                 </p>
                 <a
                   href="#"
-                  className="text-pink-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300"
+                  className="text-primary font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300"
                 >
                   Read Full Article <span>→</span>
                 </a>
@@ -113,7 +113,7 @@ const Articles: React.FC = () => {
         <div className="text-center mt-12">
           <a
             href="#"
-            className="bg-gradient-to-r from-pink-600 to-orange-500 text-white px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 shadow-md"
+            className="gradient-primary text-white px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 shadow-md"
           >
             View All Articles
           </a>
