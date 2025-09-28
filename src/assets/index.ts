@@ -1,3 +1,4 @@
 import logo from "./images/logo.png";
+import hero from "./images/hero.jpeg";
 
-export { logo };
+export { logo, hero };
