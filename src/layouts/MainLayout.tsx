@@ -7,10 +7,10 @@ import { Outlet } from 'react-router';
 
 const MainLayout: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col gradient-hero">
       <LoadingOverlay />
       <Header />
-      <main className="flex-grow md:pt-1 pt-16">
+      <main className="flex-grow pt-16">
         <Outlet />
         <Newsletter />
       </main>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {logo} from "../assets";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -33,9 +34,7 @@ const Header: React.FC = () => {
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between">
         {/* Logo */}
-        <div className="font-playfair text-xl sm:text-2xl font-bold gradient-primary bg-clip-text text-transparent select-none">
-          Confident Women 40+
-        </div>
+        <img src={logo} alt="" />
 
         {/* Hamburger - visible on mobile */}
         <button

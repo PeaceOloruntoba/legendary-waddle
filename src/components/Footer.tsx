@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-  <footer id="community" className="bg-secondary text-white py-16">
+    <footer id="community" className="bg-[#181818] text-white py-16 border-t border-primary/20">
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="text-center md:text-left">
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 <a
                   key={index}
                   href="#"
-                  className="w-10 h-10 gradient-primary rounded-full flex items-center justify-center text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                  className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                 >
                   {icon}
                 </a>

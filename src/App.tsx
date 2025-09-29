@@ -4,8 +4,7 @@ import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
 import ArticlesPage from './pages/Articles';
 import AboutPage from './pages/About';
-import BlogPage from './pages/Blog';
-import BlogAdminPage from './pages/BlogAdmin';
+import ArticlesAdmin from './pages/ArticlesAdmin';
 
 const App: React.FC = () => {
   return (
@@ -15,8 +14,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<ArticlesPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/admin/blog" element={<BlogAdminPage />} />
+          <Route path="/admin/articles" element={<ArticlesAdmin />} />
         </Route>
       </Routes>
     </Router>
