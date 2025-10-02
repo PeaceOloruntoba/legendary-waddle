@@ -13,16 +13,25 @@ const Footer: React.FC = () => {
               Empowering women through their pre-menopause journey with
               knowledge, community, and compassionate support.
             </p>
-            <div className="flex justify-center md:justify-start gap-4">
-              {["📧", "📱", "👥", "📺"].map((icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  {icon}
-                </a>
-              ))}
+            <div className="flex justify-center md:justify-start gap-4 mt-4">
+              <a
+                href="https://www.instagram.com/confident_women_40plus?igsh=MTM1YnpxYjJscHBnMA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-[#C98882] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="18" height="18" x="3" y="3" rx="5" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+              </a>
+              <a
+                href="https://www.tiktok.com/@wumimenopausematter?_t=ZN-8xQ9oMFKryg&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-[#C98882] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M16.5 3v2.25A4.25 4.25 0 0020.75 9.5h2.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><circle cx="9" cy="15" r="5" stroke="currentColor" strokeWidth="2"/><path d="M16.5 3v12a7.5 7.5 0 01-7.5 7.5" stroke="currentColor" strokeWidth="2"/></svg>
+              </a>
             </div>
           </div>
           <div className="text-center md:text-left">

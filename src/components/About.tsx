@@ -1,4 +1,5 @@
 import React from "react";
+import aboutImg from "../assets/images/about.jpg";
 
 const About: React.FC = () => {
   return (
@@ -14,14 +15,16 @@ const About: React.FC = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16 items-center">
-          <div className="animate-fade-in">
-            <div className="gradient-primary text-white flex items-center justify-center flex-col gap-2 rounded-2xl shadow-xl h-[500px]">
-              <div className="text-5xl opacity-80">👩‍💼</div>
-              <div className="text-center font-semibold">
-                Wumi Adegbenro
-                <br />
-                Your Wellness Guide
-              </div>
+          <div className="animate-fade-in flex flex-col items-center justify-center">
+            <img
+              src={aboutImg}
+              alt="Wumi Adegbenro"
+              className="w-40 h-40 md:w-56 md:h-56 object-cover rounded-2xl shadow-xl bg-white/80 mb-4"
+              loading="lazy"
+            />
+            <div className="text-center font-semibold text-primary text-lg md:text-xl">
+              Wumi Adegbenro<br />
+              <span className="text-secondary text-base font-normal">Your Wellness Guide</span>
             </div>
           </div>
           <div className="animate-fade-in">
